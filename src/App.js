@@ -18,6 +18,8 @@ function App() {
     birthDate: ''
   });
 
+
+  
   const getPage = (p) => {
     const start = p === 1 ? 0 : Number(p - 1 + '1');
     const end = p === 1 ? Number(p + '0') : Number(p + '1');
