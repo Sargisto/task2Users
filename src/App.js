@@ -3,10 +3,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FormData } from "./components/form";
 import { FilterData } from "./components/filter";
+import { Pagination } from "./components/pagination";
 import { getUsers } from "./api/users";
 
 import "./App.css";
-import "./styles/pagination.css";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -73,7 +73,7 @@ function App() {
 
   useEffect(() => setPageCount(Math.ceil(users.length / 10)), [users]);
 
-  const searchUser = ({firstName, lastName, email, access, birthDate}) => {
+  const searchUser = ({ firstName, lastName, email, access, birthDate }) => {
 
     const filteredData = users.filter((data) => {
       let FN = firstName.trim();
@@ -88,7 +88,7 @@ function App() {
         (!Access || data.access === Access) &&
         (!BD || data.birthDate === BD)) {
         return data;
-      } 
+      }
     });
 
     getPage(1, filteredData)
@@ -131,21 +131,7 @@ function App() {
         </table>
       </div>
 
-      <div className="pagination">
-        <span onClick={() => setPage(1)}>&laquo;</span>
-        {Array.from({ length: pageCount }, (_, i) => i + 1).map((num, i) => {
-          return (
-            <span
-              key={num}
-              onClick={() => setPage(num)}
-              className={pageId === num ? "active" : ""}
-            >
-              {num}
-            </span>
-          );
-        })}
-        <span onClick={() => setPage(pageCount)}>&raquo;</span>
-      </div>
+      <Pagination pageCount={pageCount} setPage={setPage} pageId={pageId}/>
       <hr />
       <FormData selectedItem={selectedItem} changeFormField={changeFormField} setUsers={setUsers} setPage={setPage} pageId={pageId} />
       <ToastContainer />

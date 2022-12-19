@@ -2,12 +2,7 @@ import '../styles/form.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const FormData = (props) => {
-  const selectedItem = props.selectedItem;
-  const changeFormField = props.changeFormField;
-  const setUsers = props.setUsers;
-  const setPage = props.setPage;
-  const pageId = props.pageId;
+export const FormData = ({selectedItem , changeFormField, setUsers, setPage, pageId}) => {
 
   const saveNewData = (event) => {
     event.preventDefault();
