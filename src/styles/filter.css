@@ -1,0 +1,11 @@
+.filter_block {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.filter_block__form {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}

@@ -24,17 +24,33 @@ select {
   box-sizing: border-box;
 }
 
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+.button {
   border: none;
-  border-radius: 4px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
   cursor: pointer;
+  border-radius: 8px;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+.button_Save {
+  background-color: #4CAF50;
+}
+.button_Create {
+  background-color: #4371f0;
+}
+.button_Delete {
+  background-color: rgb(206, 41, 41);
+}
+
+.button_Search {
+  background-color: rgb(35 114 131);;
+}
+
+#disabled {
+  background-color: #ccc;
+  cursor: auto;
 }
