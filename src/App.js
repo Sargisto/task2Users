@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FormData } from "./components/form";
 import { FilterData } from "./components/filter";
 import { Pagination } from "./components/pagination";
+import { UserTable } from "./components/userTable";
 import { getUsers } from "./api/users";
 
 import "./App.css";
@@ -99,37 +100,8 @@ function App() {
       <h1>Users</h1>
 
       <FilterData searchUser={searchUser} />
-
-      <div className="userBlock">
-        <table id="users_table">
-          <tbody>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Access</th>
-              <th>Birthdate</th>
-              <th></th>
-            </tr>
-            {usersPart.map((data, index) => {
-              return (
-                <tr
-                  key={data[`id`]}
-                  className={selectedItem.id === data[`id`] ? "active" : ""}
-                  onClick={() => setSelectedItem((prev) => data)}
-                >
-                  <td>{data[`firstName`]}</td>
-                  <td>{data[`lastName`]}</td>
-                  <td>{data[`email`]}</td>
-                  <td>{data[`access`]}</td>
-                  <td>{data[`birthDate`]}</td>
-                  <td><button className="button button_Delete" onClick={() => deleteUser(index)}>Delete</button></td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <UserTable usersPart={usersPart} selectedItem={selectedItem} 
+      setSelectedItem={setSelectedItem} deleteUser={deleteUser} />
 
       <Pagination pageCount={pageCount} setPage={setPage} pageId={pageId}/>
       <hr />
